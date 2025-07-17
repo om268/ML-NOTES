@@ -13,3 +13,88 @@ df = pd.DataFrame(data)
 
 # Display data
 df
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# import module
+import pandas as pd
+
+# creating DataFrame for Student Details
+details = pd.DataFrame({
+    'ID': [101, 102, 103, 104, 105, 106,
+           107, 108, 109, 110],
+    'NAME': ['Jagroop', 'Praveen', 'Harjot',
+             'Pooja', 'Rahul', 'Nikita',
+             'Saurabh', 'Ayush', 'Dolly', 'Mohit'],
+    'BRANCH': ['CSE', 'CSE', 'CSE', 'CSE',
+               'CSE', 'CSE', 'CSE', 'CSE', 'CSE', 'CSE']
+})
+
+# printing details
+print(details)
+
+
+# Import module
+import pandas as pd
+
+# Creating DataFrame for Fees_Status
+fees_status = pd.DataFrame(
+    {'ID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+     'PENDING': ['5000', '250', 'NIL', '9000', '15000', 'NIL',
+                 '4500', '1800', '250', 'NIL']}
+)
+
+# Printing fees_status
+print(fees_status)
+
+
+
+print(pd.merge(details, fees_status, on='ID'))
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+# Import module
+import pandas as pd
+import numpy as np
+
+# Creating DataFrame for Fees_Status
+fees_status = pd.DataFrame(
+    {'ID': [101, 102, 103, 104, 105,
+            106, 107, 108, 109, 110],
+     'PENDING': [5000, 250, np.nan,
+                 9000, 15000, np.nan,
+                 4500, 1800, 250, np.nan]}
+)
+
+# Printing fees_status
+fees_status
+
+
+missing values with mean
+
+
+import numpy as np
+import pandas as pd
+
+# A dictionary with list as values
+GFG_dict = {
+    'G1': [10, 20, 30, 40],
+    'G2': [25, np.NaN, np.NaN, 29],
+    'G3': [15, 14, 17, 11],
+    'G4': [21, 22, 23, 25]
+}
+
+# Create a DataFrame from dictionary
+gfg = pd.DataFrame(GFG_dict)
+
+# Finding the mean of the column having NaN
+mean_value = gfg['G2'].mean()
+
+# Replace NaNs in column G2 with the mean of values in the same column
+gfg['G2'].fillna(value=mean_value, inplace=True)
+
+print('Updated Dataframe:')
+print(gfg)
